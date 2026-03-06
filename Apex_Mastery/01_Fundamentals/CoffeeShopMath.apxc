@@ -22,3 +22,10 @@ Decimal amountCollected = 10.00;
 Decimal amountDue = amountCollected - totalCost;
 
 System.debug('Your change is: $' + amountDue);
+
+/* ==========================================
+   EXPECTED OUTPUT:
+   Your change is: $2.50
+   
+   (Calculation: 10.00 - (4.00 + 3.50) = 2.50)
+========================================= */
