@@ -1,0 +1,35 @@
+/* ==========================================
+   LESSON 3: DATA TYPES & CONCATENATION (EMPLOYEE PROFILE)
+   ==========================================
+   REQUIREMENT: 
+   You are writing the automated profile generator for a new HR system. 
+   A new employee named "Clark" "Kent" has just been hired. 
+   He is 30 years old, and he is a full-time worker.
+   
+   Write the Apex code to:
+   1. Store his first name, last name, and age in the correct data type variables.
+   2. Store his full-time status using a Boolean variable.
+   3. Create a 'fullName' variable that glues the first and last name together with a space.
+   4. Create an 'emailAddress' variable that glues the names together to form: "Clark.Kent@dailyplanet.com".
+   5. Print the final profile to the debug log in this exact format: 
+      "Profile Created: Clark Kent, Age: 30, Full-Time: true"
+========================================== */
+
+String firstName = 'Clark';
+String lastName = 'Kent';
+Integer age = 30;
+Boolean fullTime = true;
+
+String fullName = firstName + ' ' + lastName;
+
+String emailAddress = firstName + '.' + lastName + '@dailyplanet.com';
+
+System.debug('Profile Created: ' + fullName + ', Age: ' + age + ', Full-Time: ' + fullTime);
+
+// 5. Gluing all the variables into one giant sentence
+System.debug('Profile Created: ' + fullName + ', Age: ' + age + ', Full-Time: ' + fullTime);
+
+/* ==========================================
+   EXPECTED OUTPUT:
+   Profile Created: Clark Kent, Age: 30, Full-Time: true
+========================================== */
