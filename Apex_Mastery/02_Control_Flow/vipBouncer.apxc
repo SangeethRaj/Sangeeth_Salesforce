@@ -1,0 +1,36 @@
+/* ==========================================
+   LESSON 3: CONTROL FLOW (THE VIP BOUNCER)
+   ==========================================
+   REQUIREMENT: 
+   You are coding the entry logic for a club. 
+   The rule is simple: You must be 21 or older to enter.
+   
+   DATA:
+   - Create an Integer 'customerAge' set to 20.
+   
+   LOGIC:
+   - Use an IF/ELSE statement to check the age.
+   
+   EXPECTED OUTPUT:
+   "Sorry, come back when you are older!"
+   
+   REASONING:
+   Since 20 is less than 21, the 'if' condition is false, 
+   so the 'else' block executes.
+========================================== */
+
+Integer customerAge = 20;
+
+if (customerAge >= 21) 
+{
+    System.debug('Welcome to the club!');
+} 
+else 
+{
+    System.debug('Sorry, come back when you are older!');
+}
+
+/* ==========================================
+Output:
+Sorry, come back when you are older!
+========================================== */
