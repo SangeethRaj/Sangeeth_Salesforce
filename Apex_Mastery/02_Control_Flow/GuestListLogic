@@ -1,0 +1,33 @@
+/* ==========================================
+   LESSON 5: LOGICAL OPERATORS (THE GUEST LIST)
+   ==========================================
+   REQUIREMENT: 
+   The club has a new rule: "Either you are on the VIP List, 
+   OR you are the DJ. If you are either one, you get in for free!"
+   
+   DATA:
+   - Create a Boolean 'onVipList' set to false.
+   - Create a Boolean 'isTheDJ' set to true.
+   
+   LOGIC:
+   - Use an IF statement with the OR (||) operator.
+   
+   EXPECTED OUTPUT:
+   "Welcome! Entrance is free."
+   
+   REASONING:
+   Since 'isTheDJ' is true, the OR (||) condition is satisfied 
+   even though they aren't on the VIP list.
+========================================== */
+
+Boolean onVipList = false;
+Boolean isTheDJ = true;
+
+if ( onVipList || isTheDJ )
+{
+  System.debug('Welcome! Entrance is free.');
+}
+else
+{
+  System.debug('That will be $20, please.');
+}
