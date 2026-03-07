@@ -13,10 +13,6 @@
    
    EXPECTED OUTPUT:
    "Sorry, come back when you are older!"
-   
-   REASONING:
-   Since 20 is less than 21, the 'if' condition is false, 
-   so the 'else' block executes.
 ========================================== */
 
 Integer customerAge = 20;
@@ -31,6 +27,10 @@ else
 }
 
 /* ==========================================
-Output:
-Sorry, come back when you are older!
+   EXPECTED OUTPUT:
+   Sorry, come back when you are older!
+   
+   REASONING:
+   The variable 'customerAge' is 20. Since 20 is not 
+   greater than or equal to 21, the 'else' code runs.
 ========================================== */
