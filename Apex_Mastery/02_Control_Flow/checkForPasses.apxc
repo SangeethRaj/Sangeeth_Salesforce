@@ -1,0 +1,41 @@
+/* ==========================================
+   LESSON 6: COMBO LOGICAL OPERATORS (THE ELITE GALA)
+   ==========================================
+   REQUIREMENT: 
+   To get in, a guest must meet one of two paths:
+   PATH 1: (Age 21+ AND vipsilverPass)
+   --- OR --- 
+   PATH 2: (vipGoldPass, regardless of age).
+
+   DATA:
+   - Integer age = 26;
+   - Boolean hasSilverPass = false;
+   - Boolean hasGoldPass = true;
+========================================== */
+Integer age = 26;
+Boolean hasSilverPass = false;
+Boolean hasGoldPass = true;
+
+if (age >= 21 && hasSilverPass == true) {
+    System.debug('Welcome! Path 1 (Age + Silver) satisfied.');
+} 
+
+else if (hasGoldPass == true) 
+{
+    System.debug('Welcome! Path 2 (Gold Pass) satisfied.');
+} 
+
+else 
+{
+    System.debug('Access Denied: You do not meet the Gala requirements.');
+}
+
+/* ==========================================
+   EXPECTED OUTPUT:
+   Welcome! Path 2 (Gold Pass) satisfied.
+   
+   REASONING:
+   Since 'hasSilverPass' is false, Path 1 fails. 
+   However, the code then checks Path 2. Since 
+   'hasGoldPass' is true, that block runs!
+========================================== */
