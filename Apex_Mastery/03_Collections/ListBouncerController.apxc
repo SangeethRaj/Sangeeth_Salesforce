@@ -1,0 +1,61 @@
+/* ==========================================
+   LESSON 9: LIST METHODS (THE BOUNCER EDIT)
+   ==========================================
+   CLASS NAME: ListBouncerController
+   METHOD NAME: manageGuestList
+   
+   REQUIREMENT: 
+   1. Create a List of Strings: 'Sangeeth', 'Amal', 'John'.
+   2. Check if the list contains 'Amal'. If true, print: "Amal is cleared for entry."
+   3. John is causing trouble. Find his position (index) and remove him from the list.
+   4. Print the final size of the list.
+
+   EXPECTED OUTPUT:
+   "Amal is cleared for entry."
+   "Final guest count: 2"
+========================================== */
+
+Public class ListBouncerController 
+  {
+    public static void manageGuestList()
+    {
+      List<String> guestList = new List<String>();
+      
+      guestList.add('Sangeeth');
+      guestList.add('Amal');
+      guestList.add('John');
+      
+      if (!guestList.isEmpty())
+        {  
+          if (guestList.contains('Amal'))
+            {
+            System.debug('Amal is cleared for entry.');
+            }
+        }
+      
+      String troubleChaser = 'John';
+
+      Integer indexToRemove = -1;
+      
+      if (!guestList.isEmpty() && String.isNotBlank(troubleChaser) )
+        {  
+          for ( Integer i = 0 ; i < guestList.size() ; i++ )
+            {
+              String currentGuest = guestList.get(i);
+
+              if ( currentGuest == troubleChaser )
+                {
+                  indexToRemove = i;
+                  break;
+                }
+            }
+            guestList.remove(indexToRemove);    
+        }
+    }
+  }
+
+/* ==========================================
+   EXPECTED OUTPUT:
+   Amal is cleared for entry.
+   Final guest count: 2
+========================================== */
