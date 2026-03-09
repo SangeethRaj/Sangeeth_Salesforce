@@ -1,0 +1,45 @@
+/* ==========================================
+   LESSON 8: COLLECTIONS (LISTS)
+   ==========================================
+   REQUIREMENT: 
+   The club needs a digital guest list. Instead of creating 
+   10 different String variables, we will use a List.
+   
+   DATA TO SET UP:
+   - Create a List of Strings named 'guestList'.
+   - Add four names to the list: 'Sangeeth', 'Amal', 'John', and 'Jane'.
+   
+   LOGIC TO WRITE:
+   - Use the .add() method to populate the list.
+   - Use System.debug() to print the total number of guests 
+     using the .size() method.
+   - Use System.debug() to print the name of the very first 
+     guest (Hint: Lists start at index 0).
+
+   EXPECTED OUTPUT:
+   "Total guests: 4"
+   "First guest: Sangeeth"
+========================================== */
+
+Public Static void introList 
+{
+List<String> guestList = new List<String>
+
+guestList.add('Sangeeth');
+guestList.add('Amal');
+guestList.add('John');
+guestList.add('jane');
+
+Integer listCount = guestList.size();
+
+System.debug('Total guests: '+listCount);
+
+System.debug('First Guest: ' +guestList.get(0));
+
+}
+
+/* ==========================================
+   EXPECTED OUTPUT:
+   Total guests: 4
+   First guest: Sangeeth
+========================================== */
