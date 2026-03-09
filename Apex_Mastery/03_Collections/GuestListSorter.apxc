@@ -13,12 +13,13 @@
    "First guest after sorting: Amal"
 ========================================== */
 
-Public static GuestListSorter 
+Public class GuestListSorter 
 {
-public class sortGuests 
-{
-List<String> guestList = [ 'Sangeeth' , 'Amal', 'Zion' ];
-guestList.sort();
-System.debug('First guest after sorting: '+guestList.get(0) );
-}
+   public static void sortGuests() 
+      {
+         List<String> guestList = [ 'Sangeeth' , 'Amal', 'Zion' ];
+         guestList.sort();
+
+         System.debug('First guest after sorting: '+guestList.get(0) );
+      }
 }
