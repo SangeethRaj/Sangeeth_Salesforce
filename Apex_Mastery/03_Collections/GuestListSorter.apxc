@@ -1,0 +1,24 @@
+/* ==========================================
+   LESSON 10: LIST METHODS (SORTING)
+   ==========================================
+   CLASS NAME: GuestListSorter
+   METHOD NAME: sortGuests
+   
+   REQUIREMENT: 
+   1. Create a List of Strings: 'Zion', 'Amal', 'Sangeeth'.
+   2. Use the .sort() method to alphabetize them.
+   3. Print the name at index 0.
+
+   EXPECTED OUTPUT:
+   "First guest after sorting: Amal"
+========================================== */
+
+Public static GuestListSorter 
+{
+public class sortGuests 
+{
+List<String> guestList = [ 'Sangeeth' , 'Amal', 'Zion' ];
+guestList.sort();
+System.debug('First guest after sorting: '+guestList.get(0) );
+}
+}
