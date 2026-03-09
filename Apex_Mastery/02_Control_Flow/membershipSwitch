@@ -1,0 +1,42 @@
+/* ==========================================
+   LESSON 7: SWITCH STATEMENTS (MEMBERSHIP LEVELS)
+   ==========================================
+   REQUIREMENT: 
+   The club has a new digital kiosk. Show a custom message 
+   based on the member's 'membershipRank'.
+   
+   DATA:
+   - String currentRank = 'Gold';
+========================================== */
+
+String currentRank = 'Gold';
+
+switch on currentRank 
+{
+    when 'Bronze' 
+    {
+        System.debug('5% discount at the bar');
+    }
+    when 'Silver' 
+    {
+        System.debug('10% discount and VIP seating.');
+    }
+    when 'Gold' 
+    {
+        System.debug('Everything is free tonight!');
+    }
+    when else 
+    {
+        System.debug('Please see the front desk');
+    }
+}
+
+/* ==========================================
+   EXPECTED OUTPUT:
+   Everything is free tonight!
+   
+   REASONING:
+   The switch matches 'Gold' directly to the third 
+   'when' block, making the code run faster and 
+   look cleaner than multiple if/else statements.
+========================================== */
