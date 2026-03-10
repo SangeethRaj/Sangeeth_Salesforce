@@ -16,9 +16,15 @@
    "Sending email to: john@test.com"
 ========================================== */
 
-List<String> newList = { 'sangeeth@test.com', 'amal@test.com', 'john@test.com' }
-
-for ( String ls : newList )
-  {
-    System.debug('Sending email to '+ls);
-  }
+Public class EmailManager
+{
+   public static void sendBulkEmails ()
+      {
+         List<String> newList = { 'sangeeth@test.com', 'amal@test.com', 'john@test.com' }
+         
+         for ( String ls : newList )
+           {
+             System.debug('Sending email to '+ls);
+           }
+      }
+}
