@@ -16,7 +16,7 @@
    "Sending email to: john@test.com"
 ========================================== */
 
-List<String> newList = [ 'sangeeth@test.com', 'amal@test.com', 'john@test.com'];
+List<String> newList = { 'sangeeth@test.com', 'amal@test.com', 'john@test.com' }
 
 for ( String ls : newList )
   {
