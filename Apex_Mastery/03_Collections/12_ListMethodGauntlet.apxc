@@ -1,0 +1,46 @@
+/* ==========================================
+   LESSON 12: THE LIST METHOD GAUNTLET
+   ==========================================
+   CLASS NAME: ListMethodGauntlet
+   METHOD NAME: runGauntlet
+   
+   REQUIREMENT: 
+   1.  INITIALIZE: Create a List<String> with 'B', 'A', 'C'.
+   2.  ADD: Insert 'D' at the very BEGINNING of the list (Index 0).
+   3.  SORT: Alphabetize the list.
+   4.  SEARCH: Check if the list contains 'Z'. 
+       - If NOT, print: "Z is missing from the list."
+   5.  REPLACE: Use .set() to change the item at Index 2 to 'REPLACED'.
+   6.  CHECK: Print the final .size() of the list.
+
+   EXPECTED OUTPUT:
+   "Z is missing from the list."
+   "Final list size: 4"
+========================================== */
+
+public class ListMethodGauntlet 
+{
+  public static void runGauntlet()
+    {
+      List<String> newList = {'B', 'A', 'C'};
+
+      newList.add(0,'D');
+
+      newList.sort();
+
+      String itemToRemove = 'z';
+
+      if (!newList.contains(itemToRemove))
+        {
+          System.debug('Z is missing from the list');
+        }
+      newList.set(2,'Value Updated');
+      System.debug('The Final Size of list is: '+newList.size());
+    }
+}
+
+/* ==========================================
+   EXPECTED OUTPUT:
+   Z is missing from the list.
+   Final list size: 4
+========================================== */
