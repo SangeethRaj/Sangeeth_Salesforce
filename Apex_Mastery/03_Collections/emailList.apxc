@@ -1,0 +1,24 @@
+/* ==========================================
+   LESSON 11: THE BULK EMAILER (FOR-EACH LOOPS)
+   ==========================================
+   CLASS NAME: EmailManager
+   METHOD NAME: sendBulkEmails
+   
+   REQUIREMENT: 
+   1. Create a List of Strings called 'emailAddresses'.
+   2. Add: 'sangeeth@test.com', 'amal@test.com', 'john@test.com'.
+   3. Use a FOR-EACH loop to iterate through the list.
+   4. Inside the loop, print: "Sending email to: " + [email variable].
+
+   EXPECTED OUTPUT:
+   "Sending email to: sangeeth@test.com"
+   "Sending email to: amal@test.com"
+   "Sending email to: john@test.com"
+========================================== */
+
+List<String> newList = [ 'sangeeth@test.com', 'amal@test.com', 'john@test.com'];
+
+for ( String ls : newList )
+  {
+    System.debug('Sending email to '+ls);
+  }
