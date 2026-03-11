@@ -1,0 +1,31 @@
+/* ==========================================
+   LESSON 14: THE DUPLICATE CLEANER
+   ==========================================
+   CLASS NAME: DuplicateCleaner
+   METHOD NAME: cleanMyList
+   
+   🎯 THE CHALLENGE:
+   1. Create a List<String> with: 'Red', 'Blue', 'Red', 'Green', 'Blue'.
+   2. Create a NEW Set<String> and pass the List into the parentheses ().
+   3. Print the size of both to show the difference.
+========================================== */
+
+Public class DuplicateCleaner
+{
+public static void cleanMyList()
+{
+List<String> newList = {'Red', 'Blue', 'Red', 'Green', 'Blue'};
+
+Set<String> newSet = new Set<String>(newList);
+
+System.debug('The List: '+newList.size());
+
+System.debug('The Set: '+newSet.size());
+}
+}
+
+/* ==========================================
+   EXPECTED OUTPUT:
+   Original List Size: 5
+   Cleaned Set Size: 3
+========================================== */
