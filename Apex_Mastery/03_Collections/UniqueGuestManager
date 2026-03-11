@@ -1,0 +1,38 @@
+/* ==========================================
+   LESSON 13: THE VIP GATEKEEPER (SETS)
+   ==========================================
+   CLASS NAME: UniqueGuestManager
+   METHOD NAME: handleUniqueGuests
+   
+   🎯 WHY THIS MATTERS FOR JUNIORS: 
+   Duplicates lead to bad data and "Email Fatigue." 
+   A 'Set' automatically filters out duplicates so you 
+   don't have to write complex loops to clean data.
+   
+   REQUIREMENT: 
+   1. Create a Set of Strings: 'uniqueEmails'.
+   2. Use .add() to add 'sangeeth@test.com' twice.
+   3. Add 'amal@test.com' once.
+   4. Debug the size of the set. (It should be 2, not 3).
+========================================== */
+
+public class UniqueGuestManager 
+{
+    public static void handleUniqueGuests() 
+    {
+        Set<String> newSet = { 'sangeethraj@gmail.com', 'ravish@gmail.com', 'praveen@gmail.com', 'sangeethraj@gmail.com'};
+        newSet.add('sangeethraj@gmail.com');
+        newSet.add('ravish@gmail.com');
+        newSet.add('sangeethraj@gmail.com');
+        newSet.add('pragalya@gmail.com');
+
+        Integer setSize = newSet.size();
+
+        System.Debug('The size of the set: ' +setSize);
+    }
+}
+
+/* ==========================================
+   EXPECTED OUTPUT:
+   Total unique emails: 2
+========================================== */
