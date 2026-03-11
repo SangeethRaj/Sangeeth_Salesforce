@@ -1,0 +1,43 @@
+/* ==========================================
+   LESSON 15: INTRO TO MAPS (ID LOOKUP)
+   ==========================================
+   CLASS NAME: MemberLookup
+   METHOD NAME: findMemberName
+   
+   🎯 WHY THIS MATTERS FOR JUNIORS:
+   In Salesforce, records are identified by a 15 or 18 digit ID. 
+   When you have an ID and need the record details quickly, 
+   a Map is the fastest way to get them.
+   
+   REQUIREMENT: 
+   1. Create a Map<Integer, String> called 'memberMap'.
+   2. Use .put() to add:
+      - 101: 'Sangeeth'
+      - 102: 'Amal'
+      - 103: 'John'
+   3. Use .get(101) to fetch Sangeeth's name.
+   4. Debug the name and the total size of the map.
+========================================== */
+
+public class MemberLookup
+{
+    public static void findMemberName() 
+    {
+        Map<Integer, String> memberMap = new Map<Integer, String>();
+        
+        memberMap.put(101, 'Sangeeth');
+        memberMap.put(102, 'Amal');
+        memberMap.put(103, 'John');
+
+        String memberName = memberMap.get(101);
+
+        System.debug('The Value on key 101 is: ' + memberName);
+        System.debug('The total size of Map is: ' + memberMap.size());
+    }
+}
+
+/* ==========================================
+   EXPECTED OUTPUT:
+   Member with ID 101 is: Sangeeth
+   Total members in map: 3
+========================================== */
