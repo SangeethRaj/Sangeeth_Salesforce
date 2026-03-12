@@ -1,0 +1,41 @@
+/* ==========================================
+   LESSON 16: MAP METHODS (UPDATE & CONTAINS)
+   ==========================================
+   CLASS NAME: PhoneBookManager
+   METHOD NAME: manageContacts
+   
+   🎯 THE GOAL:
+   1. Learn how .put() behaves when a Key already exists (Overwrite).
+   2. Learn how to use .containsKey() to avoid errors.
+   
+   REQUIREMENT: 
+   1. Create a Map<String, String> called 'phoneBook'.
+   2. Add 'Sangeeth' with the number '111-222'.
+   3. "Update" 'Sangeeth' with a new number '999-000' using the same key.
+   4. Use .containsKey('Amal') and debug the result.
+   5. Debug Sangeeth's final number using .get().
+
+   EXPECTED OUTPUT:
+   "Amal exists in phonebook: false"
+   "Sangeeth's final number: 999-000"
+========================================== */
+
+Public class PhoneBookManager
+{
+  Public static manageContacts
+    {
+      Map < String, String > newMap = new Map< String, String >();
+      newMap.put('Sangeeth','111-222');
+      newMap.put('Amal','111-222');
+      newMap.put('Faisal','111-222');
+
+      newMap.put('Sangeeth','999-000');
+
+      if ( newMap.containsKey('Amal') )
+        {
+          System.debug("Amal's contact no is: "+newMap.get('Amal'));
+        }
+
+      System.debug("Sangeeth's recent contact no is: "+newMap.get('Amal'));
+    }
+}
