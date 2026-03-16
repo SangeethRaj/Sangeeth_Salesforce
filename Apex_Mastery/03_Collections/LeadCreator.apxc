@@ -1,0 +1,36 @@
+/* ==========================================
+   LESSON 17: CREATING RECORDS (DML INSERT)
+   ==========================================
+   CLASS NAME: LeadCreator
+   METHOD NAME: createNewLead
+   
+   🎯 WHY THIS MATTERS: 
+   This is how "Web-to-Lead" or "Automation" actually 
+   works under the hood. You create a record in code 
+   and save it to the database.
+   
+   REQUIREMENT: 
+   1. Create a new Lead object called 'myLead'.
+   2. Assign values to these fields:
+      - FirstName = 'Sangeeth'
+      - LastName = 'Raj'
+      - Company = 'Apex Academy'
+   3. Use the 'insert' keyword to save 'myLead' to Salesforce.
+   4. Debug the ID of the new lead using 'myLead.Id'.
+========================================== */
+
+Public class LeadCreator
+{
+  Public static void createNewLead 
+  {
+    Lead myLead = new Lead();
+
+    myLead.FirstName = 'Sangeeth';
+    myLead.LastName = 'Raj';
+    myLead.Company = 'Apex Academy';
+    
+    insert(myLead);
+    
+    System.debug('Lead successfully created with ID: ' + myLead.Id);
+  }  
+}
