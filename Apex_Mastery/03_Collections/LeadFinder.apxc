@@ -1,0 +1,26 @@
+/* ==========================================
+   LESSON 19: READING DATA (BASIC SOQL)
+   ==========================================
+   CLASS NAME: LeadFinder
+   METHOD NAME: findTestLeads
+   
+   🎯 WHY THIS MATTERS: 
+   You can't update or delete data if you can't find 
+   it first. SOQL is the "Search Engine" of Apex.
+   
+   REQUIREMENT: 
+   1. Create a List<Lead> called 'myLeads'.
+   2. Assign it the result of a SOQL query:
+      SELECT FirstName, LastName, Company FROM Lead WHERE LastName LIKE 'Test Lead%'
+   3. Loop through the list and debug each lead's Company name.
+
+   EXPECTED OUTPUT:
+   "Found Lead: Test Lead 0, Company: Cloud Tech"
+   "Found Lead: Test Lead 1, Company: Cloud Tech" ...
+========================================== */
+
+// --- HINT ---
+// To query: List<Lead> myLeads = [SELECT Id FROM Lead];
+// Square brackets [] are used for SOQL queries inside Apex!
+
+// Write your code here!
