@@ -1,0 +1,31 @@
+/* ==========================================
+   LESSON 20: THE FIND & UPDATE
+   ==========================================
+   CLASS NAME: LeadMassUpdater
+   METHOD NAME: renameTestLeads
+   
+   🎯 THE CHALLENGE:
+   Now that you've created 5 leads, their company name 
+   is 'Cloud Tech'. Your boss wants them all changed 
+   to 'Updated Academy' in one single move.
+   
+   REQUIREMENT: 
+   1. Query: Create a List<Lead> called 'leadsToUpdate' 
+      and fill it with the Leads where LastName starts 
+      with 'Test Lead'.
+   2. Logic: Use a For-Each loop (the "Pro" way) to 
+      iterate through the list.
+   3. Change: Inside the loop, set the Company field 
+      to 'Updated Academy'.
+   4. Save: Use the 'update' keyword outside the loop.
+   5. Verify: Debug "Updated [X] leads successfully."
+========================================== */
+
+List<Lead> leadsToUpdate = [SELECT FirstName, LastName, Company FROM Lead WHERE LastName LIKE 'Test Lead%'];
+
+for (Lead ld : leadsToUpdate) 
+  {
+      ld.Company = 'Updated Academy';
+  }
+update leadsToUpdate;
+System.debug('Updated ' + leadsToUpdate.size() + ' leads successfully.');
