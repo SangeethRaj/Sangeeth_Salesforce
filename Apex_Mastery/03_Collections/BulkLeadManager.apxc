@@ -1,0 +1,57 @@
+/* ==========================================
+   LESSON 18: BULK DML (PREVENTING LIMITS)
+   ==========================================
+   CLASS NAME: BulkLeadManager
+   METHOD NAME: createMultipleLeads
+   
+   🎯 WHY THIS MATTERS:
+   In Salesforce, you are shared on a server with other 
+   companies. To keep things fair, Salesforce limits 
+   how many times you can "talk" to the database (150 times).
+   
+   If you have 100 leads and insert them one by one, 
+   you use 100 "talks." If you put them in a List and 
+   insert the List, you use ONLY 1 "talk."
+   
+   REQUIREMENT: 
+   1. Create an empty List of Leads called 'leadsToCreate'.
+   2. Use a 'For' loop that runs 5 times (Integer i = 0; i < 5; i++).
+   3. Inside the loop:
+      - Create a NEW Lead object.
+      - Set LastName to 'Test Lead ' + i.
+      - Set Company to 'Cloud Tech'.
+      - .add() the lead to your 'leadsToCreate' list.
+   4. OUTSIDE the loop (after the '}' bracket), insert the list.
+   5. Print the size of the list to confirm 5 leads were handled.
+
+   EXPECTED OUTPUT:
+   "Successfully prepared 5 leads for insertion."
+========================================== */
+
+/* ==========================================
+   LESSON 18: BULK DML (PREVENTING LIMITS)
+   ==========================================
+   CLASS NAME: BulkLeadManager
+   METHOD NAME: createMultipleLeads
+========================================== */
+
+public class BulkLeadManager 
+{
+    public static void createMultipleLeads() 
+      {
+        List<Lead> leadsToCreate = new List<Lead>();
+
+        for (Integer i = 0; i < 5; i++) {
+            Lead newLead = new Lead();
+            newLead.LastName = 'Test Lead ' + i;
+            newLead.Company = 'Cloud Tech';
+            
+            System.debug('Preparing Lead: ' + newLead.LastName);
+            
+            leadsToCreate.add(newLead);
+        }
+        insert leadsToCreate; 
+
+        System.debug('Successfully inserted ' + leadsToCreate.size() + ' leads.');
+    }
+}
