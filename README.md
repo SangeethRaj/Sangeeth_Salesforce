@@ -1,4 +1,4 @@
-# ☁️Sangeeth-Salesforce-Journey
+# ☁️Sangeeth's Salesforce Journey
 
 🚀 Apex Mastery Learning Path
 
