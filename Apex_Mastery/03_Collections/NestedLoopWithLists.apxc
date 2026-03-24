@@ -1,0 +1,23 @@
+/* ==========================================
+   LESSON 22: THE SUBQUERY (NESTED LOOPS)
+   ==========================================
+   🎯 THE GOAL:
+   Query the Account and its related Contacts 
+   in one go and print them all.
+   
+   REQUIREMENT: 
+   1. Query: List<Account> myAccs = [SELECT Name, (SELECT LastName FROM Contacts) FROM Account WHERE Name = 'Parent Corp'];
+   2. Outer Loop: Loop through each Account.
+   3. Inner Loop: INSIDE the first loop, loop through 'acc.Contacts'.
+   4. Debug: Print Account Name and Contact LastName.
+========================================== */
+
+List<Account> MyAcc = [ Select Id, Name, (Select LastName from Contacts) from Account WHERE Name = 'Parent Corp'];
+for ( Account acc : MyAcc)
+{
+    for (Contact con : acc.Contacts)
+    {
+        System.debug('Account Name is: '+acc.Name);
+        System.debug('Related Contact Name is: '+con);
+    }
+}
