@@ -1,0 +1,29 @@
+/* ==========================================
+   LESSON 21: LINKING RECORDS (RELATIONSHIPS)
+   ==========================================
+   CLASS NAME: RelationshipManager
+   METHOD NAME: createContactForAccount
+   
+   🎯 THE GOAL:
+   1. Create an Account.
+   2. Use the ID of that Account to link a new Contact to it.
+   
+   REQUIREMENT: 
+   1. Create an Account called 'Parent Corp'. Insert it.
+   2. Create a Contact. Set LastName to 'Child Contact'.
+   3. CRITICAL STEP: Set 'con.AccountId = acc.Id'.
+   4. Insert the Contact.
+   5. Debug: 'Contact linked to Account: ' + con.AccountId;
+========================================== */
+
+Public class RelationshipManager
+  {
+    Public static void createContactForAccount
+      {
+        Account acc = new Account ( Name = 'Parent Corp');
+        insert acc;
+        Contact con = new Contact ( LastName = 'Child Contact', AccountId = acc.Id );
+        insert con;
+        System.debug('Contact linked to Account: ' + con.AccountId);
+      }
+  }
