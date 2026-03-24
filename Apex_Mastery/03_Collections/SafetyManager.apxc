@@ -1,0 +1,40 @@
+/* ==========================================
+   LESSON 23: DEFENSIVE CODING (NULL CHECKS)
+   ==========================================
+   CLASS NAME: SafetyManager
+   METHOD NAME: checkLeadSource
+   
+   🎯 THE GOAL:
+   Learn how to "Guard" your code so it doesn't 
+   crash when a user leaves a field blank.
+   
+   REQUIREMENT: 
+   1. Create a String called 'leadSource'.
+   2. Set it to 'null'.
+   3. Write an 'if' statement that checks:
+      - Is 'leadSource' NOT NULL? (leadSource != null)
+      - AND is 'leadSource' equal to 'Web'?
+   4. If both are true, debug "Processing Web Lead".
+   5. If false, debug "Source is empty or not Web".
+========================================== */
+
+// --- HINT ---
+// Use the AND operator (&&) to check for null FIRST.
+// if (leadSource != null && leadSource == 'Web') { ... }
+
+List<Account> myAcc = [SELECT Id, Name, (SELECT LastName, LeadSource FROM Contacts) FROM Account WHERE Name = 'Parent Corp'];
+
+for (Account acc : myAcc) 
+{
+    for (Contact con : acc.Contacts) 
+    {
+        if (con.LeadSource != null && con.LeadSource == 'Web') 
+        {
+            System.debug('✅ Processing Web Lead: ' + con.LastName);
+        } 
+        else 
+        {
+            System.debug('ℹ️ Source is empty or not Web for: ' + con.LastName);
+        }
+    }
+}
