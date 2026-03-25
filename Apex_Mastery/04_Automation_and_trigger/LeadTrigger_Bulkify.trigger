@@ -29,6 +29,7 @@ trigger LeadTrigger on Lead (before insert, before update) {
     // Key = Email String, Value = The Contact Record
 
     Map<String, Contact> emailToContactMap = new Map<String, Contact>();
+
     for (Contact con : existingContacts) 
     {
         emailToContactMap.put(con.Email, con);
@@ -47,12 +48,5 @@ trigger LeadTrigger on Lead (before insert, before update) {
 
             ld.addError('❌ Duplicate Found: A Contact with the email ' + ld.Email + ' already exists in the system.');
            }
-
-        // (Optional: Keep your Lesson 25/26 logic here as well)
-
-        if (ld.Industry == null) 
-        {
-            ld.Industry = 'Education';
-        }
     }
 }
