@@ -10,6 +10,7 @@ trigger LeadTrigger on Lead (before insert, before update) {
 
     // 1. COLLECT: Get all incoming emails into a "Bucket"
     Set<String> incomingEmails = new Set<String>();
+
     for (Lead ld : Trigger.new) 
    {
         if (ld.Email != null) 
