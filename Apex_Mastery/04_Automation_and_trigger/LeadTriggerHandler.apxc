@@ -1,0 +1,104 @@
+/* ============================================================================
+   GRAND SCENARIO: THE EMAIL PARTNER AUTOMATION ENGINE
+   ============================================================================
+   COMPANY: Email Partner (Sales & Marketing SaaS)
+   OBJECTIVE: Automate Lead lifecycle to ensure data integrity and 100% 
+              follow-up rate for the Sales Team.
+
+   BUSINESS RULES:
+   1. DATA HYGIENE (Before Insert):
+      - Every Lead must have an Industry. Default to 'Technology' if blank.
+      - Every Lead MUST have an Email. Block the save if missing.
+
+   2. SECURITY & DUPLICATE PREVENTION (Before Insert - Bulkified):
+      - Check if the incoming Email already belongs to an existing Contact.
+      - If a duplicate is found, block Lead creation to prevent data clutter.
+
+   3. SALES ACCELERATION (After Insert):
+      - Create an "Initial Outreach" Task for the Lead Owner immediately.
+      - If the Lead Rating is 'Hot', create an additional "URGENT" Task 
+        for Executive follow-up.
+
+   TECHNICAL ARCHITECTURE:
+   - Uses the 'Trigger Handler Pattern' to separate logic from execution.
+   - Fully Bulkified to handle Data Loader uploads of 200+ records.
+   ============================================================================ */
+Public class ListingTriggerHandler
+{
+    Public static void HandleBeforeInsert()
+    {
+        
+        Set<String> incomingEmails = new Set<String>();
+        
+        List<Lead> newList = Trigger.new;
+        
+        for (Lead ld : newList) 
+        {
+            if (ld.Email != null) 
+            {
+                incomingEmails.add(ld.Email);
+			}
+        }
+        
+        List<Contact> existingEmailOnContacts = [ Select Id, Email from Contact where Email IN :incomingEmails ];
+        
+        Map<String, Contact> emailMap = new Map<String, Contact>();
+        
+        for( Contact con : existingEmailOnContacts )
+        {
+            emailMap.put(con.Email, con);
+        }
+        
+        for ( Lead ld : newList)
+        {
+            
+            if ( ld.Email != null && emailMap.containsKey(ld.Email))
+            {
+                ld.addError('❌ Duplicate Found: A Contact with the email ' + ld.Email + ' already exists in the system.');
+            }
+        }
+        
+        for (Lead ld : newList) 
+        {
+            if (ld.Industry == null) 
+            {
+                ld.Industry = 'Educational';
+            }
+        }
+        
+        for (Lead ld : newList) 
+        {
+            if (ld.Email == null) 
+            {
+                ld.addError('STOP! You cannot save a Lead without an Email address.');
+            }
+        }
+        
+    }
+    
+    Public static void HandleAfterInsert()
+    {
+        List<Task> newTasks = new List<Task>();
+        
+        List<Lead> newLeads = Trigger.New;
+        
+        for ( Lead ld : newLeads)
+        {
+            Task currentTask = new Task();
+            	
+            currentTask.Subject = 'Call new Lead: ' + ld.LastName;
+            currentTask.WhoId = ld.Id; 
+            currentTask.OwnerId = ld.OwnerId;
+            currentTask.Status = 'Not Started';
+            currentTask.Priority = 'Normal';
+            
+            newTasks.add(currentTask);
+        }
+        
+        if (!newTasks.isEmpty())
+        {
+            Insert newTasks;
+        }
+    }
+    
+}
