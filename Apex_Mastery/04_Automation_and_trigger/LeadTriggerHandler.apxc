@@ -1,0 +1,39 @@
+/* ==========================================
+   LESSON 29: THE TRIGGER HANDLER (REFACTOR)
+   FILE: LeadTriggerHandler.cls
+   ==========================================
+   🎯 THE GOAL: 
+   Clean up the Trigger by moving logic into a Class.
+   
+   HINT: 
+   Your method should look like this:
+
+   public static void handleBeforeInsert(List<Lead> leadList) 
+  {
+       for (Lead ld : leadList) 
+       {
+           // Logic from L25 & L26 goes here!
+       }
+   } 
+========================================== */
+
+Public class LeadTriggerHandler 
+{
+  Public Static void handleBeforeInsert(List<Lead> newList)
+  {
+    for (Lead ld : leadList) 
+    {
+                if (ld.Industry == null) 
+                  {
+                  ld.Industry = 'Educational';
+                  }
+    }
+  if (ld.Email == null) 
+  {
+    ld.addError('STOP! You cannot save a Lead without an Email address.');
+  }
+  }
+}
+
+
+
