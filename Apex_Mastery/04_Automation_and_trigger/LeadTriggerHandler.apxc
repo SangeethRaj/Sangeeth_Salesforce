@@ -23,14 +23,15 @@
    - Uses the 'Trigger Handler Pattern' to separate logic from execution.
    - Fully Bulkified to handle Data Loader uploads of 200+ records.
    ============================================================================ */
+
 Public class ListingTriggerHandler
 {
-    Public static void HandleBeforeInsert()
+    Public static void HandleBeforeInsert(List<Lead> newList)
     {
         
         Set<String> incomingEmails = new Set<String>();
         
-        List<Lead> newList = Trigger.new;
+        //List<Lead> newList = Trigger.new;
         
         for (Lead ld : newList) 
         {
@@ -76,13 +77,11 @@ Public class ListingTriggerHandler
         
     }
     
-    Public static void HandleAfterInsert()
+    Public static void HandleAfterInsert(List<Lead> newList)
     {
         List<Task> newTasks = new List<Task>();
-        
-        List<Lead> newLeads = Trigger.New;
-        
-        for ( Lead ld : newLeads)
+                
+        for ( Lead ld : newList)
         {
             Task currentTask = new Task();
             	
