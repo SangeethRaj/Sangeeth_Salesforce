@@ -1,0 +1,55 @@
+@isTest
+public class LeadDuplicateCheckTest 
+{
+    
+    @isTest
+    static void testDuplicatePrevention() 
+    {
+        // We must create an EXISTING Contact first. 
+        Contact existingCon = new Contact( LastName = 'Existing User', Email = 'dupe@example.com');
+        insert existingCon;
+        
+        // Now prepare a Lead with the EXACT SAME email
+        Lead dupeLead = new Lead( LastName = 'I am a Duplicate', Company = 'Copy Corp', Email = 'dupe@example.com');
+        
+        // --- 2. ACT ---
+        Test.startTest();
+        try {
+            // This SHOULD fail because of your LeadDuplicateCheck trigger
+            insert dupeLead;
+            
+            // If the code reaches this line, it means the trigger FAILED to block it!
+            Assert.fail('The trigger should have blocked this duplicate Lead.');
+            
+        } 
+        catch (DmlException e) 
+        {
+            // --- 3. ASSERT ---
+            // We catch the "crash" and check if the message is the one we wrote
+            String errorMessage = e.getMessage();
+            
+            // Syntax: Assert.isTrue(Condition, MessageIfFalse)
+            Assert.isTrue(errorMessage.contains('Duplicate Found'), 'Expected duplicate error message but got: ' + errorMessage);
+        }
+        Test.stopTest();
+    }
+    
+    @isTest
+    static void testUniqueLeadAllowed() 
+   {
+        // --- POSITIVE TEST ---
+        // Just to be sure, let's make sure a UNIQUE email is allowed to save.
+        Lead uniqueLead = new Lead(
+            LastName = 'Unique User',
+            Company = 'Fresh Co',
+            Email = 'unique@example.com'
+        );
+        
+        Test.startTest();
+        insert uniqueLead; // This should succeed
+        Test.stopTest();
+        
+        // Verify it exists in the DB
+        Assert.areNotEqual(null, uniqueLead.Id, 'The Lead should have saved successfully with a unique email.');
+    }
+}
