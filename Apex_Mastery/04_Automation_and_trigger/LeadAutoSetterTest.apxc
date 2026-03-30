@@ -1,0 +1,18 @@
+@isTest
+public class LeadAutoSetterTest 
+{
+
+    @isTest
+    static void testIndustryAutomation() 
+    {
+        Lead testLead = new Lead( LastName = 'Lesson 25 User', Company  = 'Test Company');
+
+        Test.startTest();
+        insert testLead;
+        Test.stopTest();
+
+        Lead savedLead = [SELECT Industry FROM Lead WHERE Id = :testLead.Id];
+
+        Assert.areEqual('Educational', savedLead.Industry, 'The Trigger should have set the Industry to Educational');
+    }
+}
