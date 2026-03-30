@@ -17,13 +17,16 @@
       - Set 'ld.Industry = 'Education';
 ========================================== */
 
-trigger LeadTrigger on Lead (before insert) 
+public class LeadAutoSetterHandler 
 {
-    for (Lead ld : Trigger.new) 
-    {
-      if (ld.Industry == null)
-          {
-            ld.Industry = 'Educational';
-          }
-    }
+    public static void handleIndustryDefault(List<Lead> leadList) 
+      {
+        for (Lead ld : leadList) 
+            {
+            if (ld.Industry == null) 
+               {
+                ld.Industry = 'Educational';
+               }
+           }
+       }
 }
