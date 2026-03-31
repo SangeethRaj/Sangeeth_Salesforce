@@ -1,0 +1,23 @@
+@isTest
+public class TestContactTriggerHandler 
+{    
+    @isTest
+    static void TestHandleBeforeInsert()
+    {
+        Contact c1 = new Contact (FirstName = 'Sangeeth', LastName = 'Master', Email = 'sangeeth@salesforce.com');
+        
+        insert c1;
+        
+        Contact c2 = new Contact (FirstName = 'Test', LastName = 'Duplicate', Email = 'sangeeth@salesforce.com');
+        
+        Test.startTest();
+        
+        Database.SaveResult result = Database.insert(c2, false);
+        
+        Test.stopTest();
+        
+        System.assertEquals(false, result.isSuccess(), 'The duplicate contact should not have been saved.');
+        
+        System.assert(result.getErrors()[0].getMessage().contains('Duplicate Found'), 'The error message should mention a duplicate was found.');
+    }
+}
