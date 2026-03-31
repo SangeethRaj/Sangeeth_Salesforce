@@ -1,0 +1,31 @@
+public class ContactTriggerHandler 
+{
+	public static void HandleBeforeInsert( List<Contact> newList)
+    {        
+        Set<String> incomingEmails = new Set<String>();
+        For ( Contact con : newList)
+        {
+            if(con.Email != null)
+            {
+                incomingEmails.add(con.Email);
+            }
+        }
+        
+        List<Contact> existingContact = [Select Id, Email from Contact where Email IN :incomingEmails];
+        
+        Map <String,Contact> emailMap = new Map <String,Contact>();
+        
+        For ( Contact conMap : existingContact)
+        {
+            emailMap.put(conMap.Email,conMap);
+        }
+        
+        For ( Contact cn : newList )
+        {
+            if(cn.Email != null && emailMap.containsKey(cn.Email))
+                {
+                    cn.addError('❌ Duplicate Found: A Contact with the email ' + cn.Email + ' already exists in the system.');
+                }
+        }
+    }
+}
