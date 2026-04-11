@@ -1,0 +1,23 @@
+@isTest
+public class LeadTriggerHandlerTest 
+{    
+    @isTest
+    static void HandleBeforeInsertTest() 
+    {
+        Lead testLead = new Lead(
+            LastName = 'Testerson',
+            Company = 'Test Org',
+            Email = 'unique_test@example.com' 
+        );
+        
+        Test.startTest();
+        insert testLead; 
+        Test.stopTest();
+        
+        Lead resultLead = [SELECT Industry FROM Lead WHERE Id = :testLead.Id];
+        
+        Assert.areEqual('Educational', resultLead.Industry, 'Industry should be Educational');
+        
+    }
+    
+}
