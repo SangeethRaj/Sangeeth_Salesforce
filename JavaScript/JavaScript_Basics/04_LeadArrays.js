@@ -13,6 +13,6 @@ const leadList = [
     firstName: 'Sangeeth1',
     company: 'Dotts1'
   },
-  ]
+  ];
 
 console.log(leadList);
